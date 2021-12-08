@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+}
+
+html, body {
+
+  --black: hsl(240, 6%, 13%);
+  --grey: hsl(240, 9%, 89%);
+
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+  
+body {
+  display: grid; /*grid colocamos para usar o place-items: center, para centralizar os items (grid pode e deve ser mais aprofundado para aprender)*/
+  place-items: center;
+}
+
+main {
+  background: url(images/background.svg);
+  height: 812px;
+  width: 375px;
+}
+
+.container {
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  color: var(--grey);
+}
+
+.avatar {
+  width: 10rem;
+  margin: 11.5rem auto 0;
+
+  position: relative;/* Vai trabalhar com o position: absolute de baixo. Quando colocado relative aqui, ele vai ser determinado como o limite, tipo, a imagem de baixo no .avatar span vai ver o elemento .avatar como o topo, e vai se posicionar a baixo dele, então quando colocamos o top: -15, como o .avatar é o topo, o .avatar span vai subir 15px*/
+}
+
+.avatar span {
+  position: absolute; /*permite que as imagens fiquem uma em cima da outra*/
+  top: -15px;
+  z-index: 1;
+}
+
+.avatar > img { /* Vai procurar dentro da classe avatar no html o elemento img que não esteja dentro de outro elemento; procura no primeiro nível*/
+  width: 10rem;
+  height: 11.5rem;
+  object-fit: cover;/*Vai se adaptar as novas proporções do width e height*/
+
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);/*Fazer o poligono*/
+}
+
+h1 {
+  font-size: 1.5rem;
+
+  margin-top: 1.5rem;
+}
+
+a {
+  color: var(--grey);
+  text-decoration: none;
+  margin-top: 0.25rem;
+
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+
+  align-items: center;/* Garantir o alinhamento*/
+}
+
+p {
+  margin-top: 2rem;
+}
+
+ul {
+  margin-top: 4rem;
+  
+  list-style: none;
+  padding: 0;
+
+  display: flex;/*Deixa um elemento do lado do outro, no eixo vertical*/
+  gap: 0.5rem; /*espaço*/
+  
+  justify-content: center; /* Alinhamento central por causa do flex*/
+
+  /* gap e justify-content são liberado pelo display: flex ou grid*/
+}
